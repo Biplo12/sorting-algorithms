@@ -6,8 +6,8 @@ export default {
       colors: {
         text: "#ffffff",
         background: "#00081e",
-        "primary-button": "#5f247b",
-        "secondary-button": "#dcefec",
+        "primary-button": "#0505c7",
+        "secondary-button": "#104256",
         accent: "#049a90",
       },
     },

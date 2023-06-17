@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useRandomArray from "./hooks/useRandomArray";
 import useSelectionSort from "./hooks/Algorithms/useSelectionSort";
 import useBubbleSort from "./hooks/Algorithms/useBubbleSort";
@@ -13,8 +13,12 @@ import useRadixSort from "./hooks/Algorithms/useRadixSort";
 import useBucketSort from "./hooks/Algorithms/useBucketSort";
 
 function App() {
-  const randomizedArray = useRandomArray(100, 0, 100);
-  const [array, setArray] = useState<number[]>(randomizedArray);
+  const randomArrayOfNumbers = useRandomArray(100, 0, 100);
+  const [array, setArray] = useState<number[]>([]);
+
+  useEffect(() => {
+    setArray(randomArrayOfNumbers);
+  }, []);
 
   const selectionSort = useSelectionSort(array, setArray);
   const bubbleSort = useBubbleSort(array, setArray);
@@ -111,12 +115,12 @@ function App() {
   ];
 
   return (
-    <div className="w-full min-h-[100vh] h-auto flex justify-center items-center bg-background flex-col gap-5">
+    <div className="w-full min-h-[90vh] h-auto flex justify-center items-center bg-background flex-col gap-5">
       <SortingAlgorithms
         algorithms={algorithms}
         array={array}
         setArray={setArray}
-        randomizedArray={randomizedArray}
+        randomizedArray={randomArrayOfNumbers}
       />
     </div>
   );

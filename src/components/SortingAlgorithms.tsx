@@ -51,7 +51,7 @@ const SortingAlgorithms: React.FC<ISortingAlgorithmsProps> = ({
         <span className="text-lg">Click on an algorithm to sort the array</span>
       </p>
       <div className="flex flex-col justify-center items-center gap-10">
-        <Bars array={array} />
+        <Bars array={array} setArray={setArray} />
       </div>
       <div className="flex gap-3 flex-wrap justify-center items-center">
         {algorithms.map((algorithm) => (
@@ -73,6 +73,7 @@ const SortingAlgorithms: React.FC<ISortingAlgorithmsProps> = ({
           isSorting={anyAlgorithmSorting}
         />
       </div>
+
       <div className="h-12">
         {anyAlgorithmSorting && <StopButton isSorting={anyAlgorithmSorting} />}
       </div>

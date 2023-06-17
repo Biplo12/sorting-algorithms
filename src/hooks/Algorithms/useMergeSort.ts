@@ -13,21 +13,47 @@ const useMergeSort = (
     middleIdx: number,
     endIdx: number
   ) => {
+    const sortedArray = [...array];
+
     let start = startIdx;
     let end = middleIdx + 1;
+    let sortedIdx = startIdx;
+
     while (start <= middleIdx && end <= endIdx) {
-      if (array[start] > array[end]) {
-        let temp = array[end];
-        array.splice(end, 1);
-        array.splice(start, 0, temp);
-        start++;
+      if (sortedArray[start] > sortedArray[end]) {
+        array[sortedIdx] = sortedArray[end];
         end++;
-        setArray([...array]);
-        await new Promise((resolve) => setTimeout(resolve, 25));
       } else {
+        array[sortedIdx] = sortedArray[start];
         start++;
       }
+      sortedIdx++;
+      setArray([...array]);
+      await new Promise((resolve) => setTimeout(resolve, 5));
     }
+
+    while (start <= middleIdx) {
+      array[sortedIdx] = sortedArray[start];
+      start++;
+      sortedIdx++;
+      setArray([...array]);
+      await new Promise((resolve) => setTimeout(resolve, 5));
+    }
+
+    while (end <= endIdx) {
+      array[sortedIdx] = sortedArray[end];
+      end++;
+      sortedIdx++;
+      setArray([...array]);
+      await new Promise((resolve) => setTimeout(resolve, 5));
+    }
+  };
+
+  const mergeSort = async () => {
+    setIsSorting(true);
+    await mergeSortHelper(array, 0, array.length - 1);
+    setIsSorting(false);
+    setIsSorted(true);
   };
 
   const mergeSortHelper = async (
@@ -40,13 +66,6 @@ const useMergeSort = (
     await mergeSortHelper(array, startIdx, middleIdx);
     await mergeSortHelper(array, middleIdx + 1, endIdx);
     await merge(array, startIdx, middleIdx, endIdx);
-  };
-
-  const mergeSort = async () => {
-    setIsSorting(true);
-    await mergeSortHelper(array, 0, array.length - 1);
-    setIsSorting(false);
-    setIsSorted(true);
   };
 
   return { mergeSort, isSorting, isSorted, setIsSorted };

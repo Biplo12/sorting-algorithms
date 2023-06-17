@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
-import AlgorithmButton from "@/components/common/AlgorithmButton";
+import React, { useState } from "react";
 import useRandomArray from "./hooks/useRandomArray";
 import useSelectionSort from "./hooks/Algorithms/useSelectionSort";
-import Bars from "./components/Bars";
-import RandomizeArrayButton from "./components/RandomizeArrayButton";
 import useBubbleSort from "./hooks/Algorithms/useBubbleSort";
 import useInsertionSort from "./hooks/Algorithms/useInsertionSort";
 import useMergeSort from "./hooks/Algorithms/useMergeSort";
 import useBogoSort from "./hooks/Algorithms/useBogoSort";
+import useHeapSort from "./hooks/Algorithms/useHeapSort";
+import useCountingSort from "./hooks/Algorithms/useCountingSort";
+import SortingAlgorithms from "./components/SortingAlgorithms";
+import useQuickSort from "./hooks/Algorithms/useQuickSort";
+import useRadixSort from "./hooks/Algorithms/useRadixSort";
 
 function App() {
   const randomizedArray = useRandomArray(100, 0, 100);
@@ -18,6 +20,10 @@ function App() {
   const insertionSort = useInsertionSort(array, setArray);
   const mergeSort = useMergeSort(array, setArray);
   const bogoSort = useBogoSort(array, setArray);
+  const quickSort = useQuickSort(array, setArray);
+  const heapSort = useHeapSort(array, setArray);
+  const countingSort = useCountingSort(array, setArray);
+  const radixSort = useRadixSort(array, setArray);
 
   const algorithms = [
     {
@@ -60,52 +66,47 @@ function App() {
       isSorted: bogoSort.isSorted,
       setIsSorted: bogoSort.setIsSorted,
     },
+    {
+      key: "quickSort",
+      title: "Quick Sort",
+      sortAlgorithm: quickSort.quickSort,
+      isSorting: quickSort.isSorting,
+      isSorted: quickSort.isSorted,
+      setIsSorted: quickSort.setIsSorted,
+    },
+    {
+      key: "heapSort",
+      title: "Heap Sort",
+      sortAlgorithm: heapSort.heapSort,
+      isSorting: heapSort.isSorting,
+      isSorted: heapSort.isSorted,
+      setIsSorted: heapSort.setIsSorted,
+    },
+    {
+      key: "countingSort",
+      title: "Counting Sort",
+      sortAlgorithm: countingSort.countingSort,
+      isSorting: countingSort.isSorting,
+      isSorted: countingSort.isSorted,
+      setIsSorted: countingSort.setIsSorted,
+    },
+    {
+      key: "radixSort",
+      title: "Radix Sort",
+      sortAlgorithm: radixSort.radixSort,
+      isSorting: radixSort.isSorting,
+      isSorted: radixSort.isSorted,
+      setIsSorted: radixSort.setIsSorted,
+    },
   ];
 
-  const anyAlgorithmSorting = algorithms.some(
-    (algorithm) => algorithm.isSorting
-  );
-  let anyAlgorithmSorted = algorithms.some((algorithm) => algorithm.isSorted);
-
-  const resetSortingStatus = () => {
-    algorithms.forEach((algorithm) => {
-      algorithm.setIsSorted(false);
-    });
-  };
-
-  const handleRandomizeArray = () => {
-    setArray(randomizedArray);
-    resetSortingStatus();
-  };
-
   return (
-    <>
-      <div className="w-full min-h-[100vh] h-auto flex justify-center items-center bg-background flex-col gap-20">
-        <div className="flex flex-col justify-center items-center gap-10">
-          <Bars array={array} />
-        </div>
-        <div className="flex gap-3">
-          {algorithms.map((algorithm) => (
-            <div
-              className="flex flex-col justify-center items-center gap-3"
-              key={algorithm.key}
-            >
-              <AlgorithmButton
-                key={algorithm.title}
-                title={algorithm.title}
-                sortAlgorithm={algorithm.sortAlgorithm}
-                isSorting={anyAlgorithmSorting}
-                isSorted={anyAlgorithmSorted}
-              />
-            </div>
-          ))}
-          <RandomizeArrayButton
-            setArray={handleRandomizeArray}
-            isSorting={anyAlgorithmSorting}
-          />
-        </div>
-      </div>
-    </>
+    <SortingAlgorithms
+      algorithms={algorithms}
+      array={array}
+      setArray={setArray}
+      randomizedArray={randomizedArray}
+    />
   );
 }
 

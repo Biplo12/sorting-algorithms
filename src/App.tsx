@@ -10,6 +10,7 @@ import useCountingSort from "./hooks/Algorithms/useCountingSort";
 import SortingAlgorithms from "./components/SortingAlgorithms";
 import useQuickSort from "./hooks/Algorithms/useQuickSort";
 import useRadixSort from "./hooks/Algorithms/useRadixSort";
+import useBucketSort from "./hooks/Algorithms/useBucketSort";
 
 function App() {
   const randomizedArray = useRandomArray(100, 0, 100);
@@ -24,6 +25,7 @@ function App() {
   const heapSort = useHeapSort(array, setArray);
   const countingSort = useCountingSort(array, setArray);
   const radixSort = useRadixSort(array, setArray);
+  const bucketSort = useBucketSort(array, setArray);
 
   const algorithms = [
     {
@@ -97,6 +99,14 @@ function App() {
       isSorting: radixSort.isSorting,
       isSorted: radixSort.isSorted,
       setIsSorted: radixSort.setIsSorted,
+    },
+    {
+      key: "bucketSort",
+      title: "Bucket Sort",
+      sortAlgorithm: bucketSort.bucketSort,
+      isSorting: bucketSort.isSorting,
+      isSorted: bucketSort.isSorted,
+      setIsSorted: bucketSort.setIsSorted,
     },
   ];
 

@@ -5,10 +5,10 @@ export default {
     extend: {
       colors: {
         text: "#ffffff",
-        background: "#0c041b",
-        "primary-button": "#335975",
+        background: "#00081e",
+        "primary-button": "#5f247b",
         "primary-button-hover": "#497ea6",
-        "secondary-button": "#fac8fe",
+        "secondary-button": "#dcefec",
         accent: "#049a90",
       },
     },

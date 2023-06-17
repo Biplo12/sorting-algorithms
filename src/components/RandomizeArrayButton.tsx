@@ -17,7 +17,7 @@ const RandomizeArrayButton: React.FC<IRandomizeArrayButtonProps> = ({
   return (
     <button
       className="bg-secondary-button text-black py-2 px-4 rounded 
-      hover:bg-secondary-button-hover transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+      hover:bg-secondary-button-hover transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-90"
       onClick={handleRandomizeArray}
       disabled={isSorting}
     >

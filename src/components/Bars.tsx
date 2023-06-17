@@ -11,7 +11,7 @@ const Bars: React.FC<IBarsProps> = ({ array }): JSX.Element => {
     const max = sortedArray[sortedArray.length - 1];
     const min = sortedArray[0];
     const percentage = (value - min) / (max - min);
-    return `hsl(${percentage * 240}, 100%, 50%)`;
+    return `hsl(${percentage * 50}, 100%, 50%)`;
   };
 
   return (

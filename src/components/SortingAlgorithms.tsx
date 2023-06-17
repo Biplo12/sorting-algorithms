@@ -41,7 +41,7 @@ const SortingAlgorithms: React.FC<ISortingAlgorithmsProps> = ({
     resetSortingStatus();
   };
   return (
-    <div className="w-full min-h-[100vh] h-auto flex justify-center items-center bg-background flex-col gap-5">
+    <div className="flex flex-col justify-center items-center gap-10">
       <div className="flex flex-col justify-center items-center gap-10">
         <Bars array={array} />
       </div>

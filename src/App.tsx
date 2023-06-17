@@ -111,12 +111,14 @@ function App() {
   ];
 
   return (
-    <SortingAlgorithms
-      algorithms={algorithms}
-      array={array}
-      setArray={setArray}
-      randomizedArray={randomizedArray}
-    />
+    <div className="w-full min-h-[100vh] h-auto flex justify-center items-center bg-background flex-col gap-5">
+      <SortingAlgorithms
+        algorithms={algorithms}
+        array={array}
+        setArray={setArray}
+        randomizedArray={randomizedArray}
+      />
+    </div>
   );
 }
 

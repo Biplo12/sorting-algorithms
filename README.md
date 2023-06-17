@@ -56,7 +56,7 @@ Feel free to explore the project, experiment with different sorting algorithms, 
 
 ### License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License.
 
 ### Acknowledgments
 

@@ -5,6 +5,7 @@ interface IAlgorithmButtonProps {
   sortAlgorithm: () => void;
   isSorting?: boolean;
   isSorted?: boolean;
+  handleOpenToolBar?: () => void;
 }
 
 const AlgorithmButton: React.FC<IAlgorithmButtonProps> = ({
@@ -12,12 +13,18 @@ const AlgorithmButton: React.FC<IAlgorithmButtonProps> = ({
   sortAlgorithm,
   isSorting,
   isSorted,
+  handleOpenToolBar,
 }): JSX.Element => {
+  const handleClick = () => {
+    sortAlgorithm();
+    if (handleOpenToolBar) {
+      handleOpenToolBar();
+    }
+  };
   return (
     <button
-      className="bg-primary-button text-white py-2 px-4 rounded 
-      transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-90"
-      onClick={sortAlgorithm}
+      className="bg-primary-button text-white py-2 px-4 rounded transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-90 mxlg:h-16"
+      onClick={handleClick}
       disabled={isSorting || isSorted}
     >
       {title}

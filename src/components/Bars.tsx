@@ -2,32 +2,9 @@ import React, { useEffect, useState } from "react";
 
 interface IBarsProps {
   array: number[];
-  setArray: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-const Bars: React.FC<IBarsProps> = ({ array, setArray }): JSX.Element => {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [barsNumber, setBarsNumber] = useState<number>(array.length);
-  const sortedArray = [...array].sort((a, b) => a - b);
-
-  const calculateColor = (value: number): string => {
-    const max = sortedArray[sortedArray.length - 1];
-    const min = sortedArray[0];
-    const percentage = (value - min) / (max - min);
-    return `hsl(${percentage * 50}, 100%, 50%)`;
-  };
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    setBarsNumber(Math.floor(windowWidth / 20));
-  }, [windowWidth]);
-
+const Bars: React.FC<IBarsProps> = ({ array }): JSX.Element => {
   return (
     <div className="flex justify-center items-end min-h-[500px]">
       {array.map((value, index) => {
@@ -43,10 +20,9 @@ const Bars: React.FC<IBarsProps> = ({ array, setArray }): JSX.Element => {
             }}
           >
             <div
-              className="w-full h-[1px]"
+              className="w-full h-[1px] bg-[#42db1f]"
               style={{
                 height: `${remainingHeight}px`,
-                backgroundColor: calculateColor(value),
               }}
             />
           </div>

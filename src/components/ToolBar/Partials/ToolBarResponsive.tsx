@@ -51,10 +51,7 @@ const ToolBarResponsive: React.FC<IToolBarResponsiveProps> = ({
               handleOpenToolBar={handleOpenToolBar}
             />
           ))}
-          <RandomizeArrayButton
-            setArray={handleRandomizeArray}
-            setSortingStopped={handleOpenToolBar}
-          />
+          <RandomizeArrayButton setArray={handleRandomizeArray} />
         </div>
       )}
     </>

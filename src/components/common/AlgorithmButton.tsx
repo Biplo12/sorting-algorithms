@@ -23,7 +23,7 @@ const AlgorithmButton: React.FC<IAlgorithmButtonProps> = ({
   };
   return (
     <button
-      className="bg-primary-button text-white py-2 px-4 rounded transition text-sm duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-90 mxlg:h-16 border-r border-white border-opacity-10 hover:border-opacity-20"
+      className="bg-primary-button text-white py-2 px-4 rounded transition text-sm duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed hover:brightness-90 mxlg:h-16 border-r border-white border-opacity-10"
       onClick={handleClick}
       disabled={isSorting || isSorted}
     >

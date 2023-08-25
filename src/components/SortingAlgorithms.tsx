@@ -2,7 +2,7 @@ import React from "react";
 import Bars from "./Bars";
 import AlgorithmButton from "./common/AlgorithmButton";
 import RandomizeArrayButton from "./ToolBar/Partials/RandomizeArrayButton";
-import StopButton from "./StopButton";
+import StopButton from "./ToolBar/StopButton";
 import SortingAlgorithHeader from "./SortingAlgorithHeader";
 import ToolBar from "./ToolBar/ToolBar";
 

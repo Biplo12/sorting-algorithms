@@ -27,7 +27,6 @@ const RandomizeArrayButton: React.FC<IRandomizeArrayButtonProps> = ({
           <p className="font-bold">
             Randomize Array
             <br />
-            <span className="font-normal text-gray-400">(Spacebar)</span>
           </p>
         </div>
       </Tooltip>

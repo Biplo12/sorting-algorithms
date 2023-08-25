@@ -3,7 +3,7 @@ import AlgorithmButton from "../common/AlgorithmButton";
 import RandomizeArrayButton from "./Partials/RandomizeArrayButton";
 import ToolBarResponsive from "./Partials/ToolBarResponsive";
 import ToolBarResponsiveButton from "./Partials/ToolBarResponsiveButton";
-import StopButton from "../StopButton";
+import StopButton from "./StopButton";
 
 interface IToolBarProps {
   algorithms: {

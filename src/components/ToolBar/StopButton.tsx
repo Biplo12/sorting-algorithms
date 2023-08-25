@@ -19,12 +19,11 @@ const StopButton: React.FC<ISortButtonProps> = ({ isSorting }): JSX.Element => {
           <p className="font-bold">
             Stop sorting
             <br />
-            <span className="font-normal text-gray-400">(Esc)</span>
           </p>
         </div>
       </Tooltip>
       <button
-        className="bg-primary-button text-white py-2 px-8 rounded transition text-sm duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed brightness-75 mxlg:h-16 border-r border-white border-opacity-10 hover:border-opacity-20"
+        className="bg-primary-button text-white py-2 px-8 rounded transition text-sm duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed mxlg:h-16 border-r border-white border-opacity-10"
         onClick={() => window.location.reload()}
         disabled={!isSorting}
         data-tip

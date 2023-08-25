@@ -1,4 +1,4 @@
-const useRandomArray = (length: number, min: number, max: number) => {
+const randomArray = (length: number, min: number, max: number) => {
   const randomArrayOfNumbers = (
     length: number,
     min: number,
@@ -14,4 +14,4 @@ const useRandomArray = (length: number, min: number, max: number) => {
   return randomArrayOfNumbers(length, min, max);
 };
 
-export default useRandomArray;
+export default randomArray;

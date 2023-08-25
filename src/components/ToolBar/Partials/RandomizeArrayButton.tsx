@@ -1,4 +1,4 @@
-import useRandomArray from "@/hooks/useRandomArray";
+import randomArray from "@/hooks/randomArray";
 import React from "react";
 import { Tooltip } from "react-tooltip";
 
@@ -9,7 +9,7 @@ interface IRandomizeArrayButtonProps {
 const RandomizeArrayButton: React.FC<IRandomizeArrayButtonProps> = ({
   setArray,
 }): JSX.Element => {
-  const randomArrayOfNumbers = useRandomArray(100, 0, 100);
+  const randomArrayOfNumbers = randomArray(100, 0, 100);
   const handleRandomizeArray = () => {
     window.location.reload();
     setArray(randomArrayOfNumbers);

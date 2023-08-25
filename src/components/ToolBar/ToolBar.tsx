@@ -43,7 +43,7 @@ const ToolBar: React.FC<IToolBarProps> = ({
 
   return (
     <div className="z-50 w-full">
-      <div className="mxlg:hidden fixed bottom-6 left-1/2 flex h-[65px] w-full max-w-[1430px] -translate-x-1/2 transform items-center justify-center gap-2 rounded-md bg-secondary-button p-1.5">
+      <div className="mxlg:hidden fixed bottom-6 left-1/2 flex h-[65px] w-full max-w-[1025px] -translate-x-1/2 transform items-center justify-center gap-2 rounded-md bg-secondary-button p-1.5">
         {algorithms.map((algorithm) => (
           <AlgorithmButton
             key={algorithm.title}

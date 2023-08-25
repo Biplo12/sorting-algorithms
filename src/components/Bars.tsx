@@ -10,7 +10,6 @@ const Bars: React.FC<IBarsProps> = ({ array }): JSX.Element => {
       {array.map((value, index) => {
         const halfHeight = (value * 5) / 2;
         const remainingHeight = value * 5 - halfHeight;
-
         return (
           <div
             className="w-2 mr-1 transition duration-150 ease-in-out"

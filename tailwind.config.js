@@ -21,8 +21,8 @@ export default {
         mxsm: { max: "640px" },
         // => @media (max-width: 768px) { ... }
         mxmd: { max: "768px" },
-        // => @media (max-width: 1024px) { ... }
-        mxlg: { max: "1024px" },
+        // => @media (max-width: 1060px) { ... }
+        mxlg: { max: "1060px" },
         // => @media (max-width: 1280px) { ... }
         mxxl: { max: "1280px" },
       },

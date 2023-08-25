@@ -1,7 +1,7 @@
 import React from "react";
 const SortingAlgorithHeader: React.FC = (): JSX.Element => {
   return (
-    <div className="flex flex-col justify-center items-center gap-5 text-white">
+    <div className="flex flex-col justify-center items-center gap-5 text-white text-center px-4">
       <h1>
         <span className="text-2xl font-bold text-white">
           Sorting Algorithms

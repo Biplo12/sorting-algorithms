@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import useRandomArray from "./hooks/useRandomArray";
+import React, { useEffect, useState } from "react";
+import randomArray from "./hooks/randomArray";
 import useSelectionSort from "./hooks/Algorithms/useSelectionSort";
 import useBubbleSort from "./hooks/Algorithms/useBubbleSort";
 import useInsertionSort from "./hooks/Algorithms/useInsertionSort";
@@ -13,8 +13,33 @@ import useRadixSort from "./hooks/Algorithms/useRadixSort";
 import useBucketSort from "./hooks/Algorithms/useBucketSort";
 
 function App() {
-  const randomArrayOfNumbers = useRandomArray(100, 1, 100);
+  const [barsCount, setBarsCount] = useState(100);
+
+  const updateBarsCount = () => {
+    const width = window.innerWidth;
+    const newBarsCount = Math.floor(width / 14);
+    if (newBarsCount < 10) {
+      setBarsCount(10);
+      return;
+    }
+    if (newBarsCount > 100) {
+      setBarsCount(100);
+      return;
+    }
+    setBarsCount(newBarsCount);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateBarsCount);
+    updateBarsCount();
+    return () => window.removeEventListener("resize", updateBarsCount);
+  }, []);
+  const randomArrayOfNumbers = randomArray(barsCount, 1, 100);
   const [array, setArray] = useState<number[]>(randomArrayOfNumbers);
+
+  useEffect(() => {
+    setArray(randomArrayOfNumbers);
+  }, [barsCount]);
 
   const selectionSort = useSelectionSort(array, setArray);
   const bubbleSort = useBubbleSort(array, setArray);
@@ -30,7 +55,7 @@ function App() {
   const algorithms = [
     {
       key: "selectionSort",
-      title: "Selection Sort",
+      title: "Selection",
       sortAlgorithm: selectionSort.selectionSort,
       isSorting: selectionSort.isSorting,
       isSorted: selectionSort.isSorted,
@@ -38,7 +63,7 @@ function App() {
     },
     {
       key: "bubbleSort",
-      title: "Bubble Sort",
+      title: "Bubble",
       sortAlgorithm: bubbleSort.bubbleSort,
       isSorting: bubbleSort.isSorting,
       isSorted: bubbleSort.isSorted,
@@ -46,7 +71,7 @@ function App() {
     },
     {
       key: "insertionSort",
-      title: "Insertion Sort",
+      title: "Insertion",
       sortAlgorithm: insertionSort.insertionSort,
       isSorting: insertionSort.isSorting,
       isSorted: insertionSort.isSorted,
@@ -54,7 +79,7 @@ function App() {
     },
     {
       key: "mergeSort",
-      title: "Merge Sort",
+      title: "Merge",
       sortAlgorithm: mergeSort.mergeSort,
       isSorting: mergeSort.isSorting,
       isSorted: mergeSort.isSorted,
@@ -62,7 +87,7 @@ function App() {
     },
     {
       key: "bogoSort",
-      title: "Bogo Sort",
+      title: "Bogo",
       sortAlgorithm: bogoSort.bogoSort,
       isSorting: bogoSort.isSorting,
       isSorted: bogoSort.isSorted,
@@ -70,7 +95,7 @@ function App() {
     },
     {
       key: "quickSort",
-      title: "Quick Sort",
+      title: "Quick",
       sortAlgorithm: quickSort.quickSort,
       isSorting: quickSort.isSorting,
       isSorted: quickSort.isSorted,
@@ -78,7 +103,7 @@ function App() {
     },
     {
       key: "heapSort",
-      title: "Heap Sort",
+      title: "Heap",
       sortAlgorithm: heapSort.heapSort,
       isSorting: heapSort.isSorting,
       isSorted: heapSort.isSorted,
@@ -86,7 +111,7 @@ function App() {
     },
     {
       key: "countingSort",
-      title: "Counting Sort",
+      title: "Counting",
       sortAlgorithm: countingSort.countingSort,
       isSorting: countingSort.isSorting,
       isSorted: countingSort.isSorted,
@@ -94,7 +119,7 @@ function App() {
     },
     {
       key: "radixSort",
-      title: "Radix Sort",
+      title: "Radix",
       sortAlgorithm: radixSort.radixSort,
       isSorting: radixSort.isSorting,
       isSorted: radixSort.isSorted,
@@ -102,7 +127,7 @@ function App() {
     },
     {
       key: "bucketSort",
-      title: "Bucket Sort",
+      title: "Bucket",
       sortAlgorithm: bucketSort.bucketSort,
       isSorting: bucketSort.isSorting,
       isSorted: bucketSort.isSorted,
